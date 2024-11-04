@@ -111,7 +111,7 @@ func checkStats(values []float64) {
 	// Проверка использования диска
 	freeDiskMB := (totalDisk - usedDisk) / (1000 * 1000)
 	if usedDisk/totalDisk*100 > maxDiskUsagePercent {
-		fmt.Printf("Free disk space is too low: %d Mb left\n", freeDiskMB)
+		fmt.Printf("Free disk space is too low: %.0f Mb left\n", freeDiskMB)
 	}
 
 	// Проверка использования пропускной способности сети

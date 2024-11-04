@@ -115,7 +115,7 @@ func checkStats(values []float64) {
 	}
 
 	// Проверка использования пропускной способности сети
-	freeBandwidthMbit := (totalBandwidth - usedBandwidth) / (1024 * 1024)
+	freeBandwidthMbit := (totalBandwidth - usedBandwidth) / (1000 * 1000)
 	if usedBandwidth/totalBandwidth*100 > maxNetworkUsagePercent {
 		fmt.Printf("Network bandwidth usage high: %.0f Mbit/s available\n", freeBandwidthMbit)
 	}

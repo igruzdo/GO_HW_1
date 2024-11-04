@@ -39,7 +39,7 @@ func main() {
 			continue
 		}
 
-		body, err := io.ReadAll(resp.Body) // замена ioutil.ReadAll на io.ReadAll
+		body, err := io.ReadAll(resp.Body)
 		resp.Body.Close()
 		if err != nil {
 			errorCount++

@@ -106,20 +106,20 @@ func checkStats(values []float64) {
 	// Проверка использования памяти
 	if usedMemory/totalMemory*100 > maxMemoryUsagePercent {
 		memUsagePercent := usedMemory / totalMemory * 100
-    memUsagePercent = math.Round(memUsagePercent)
+    memUsagePercent = math.Floor(memUsagePercent)
 		fmt.Printf("Memory usage too high: %.0f%%\n", memUsagePercent)
 	}
 
 	// Проверка использования диска
 	freeDiskMB := (totalDisk - usedDisk) / (1024 * 1024)
-  freeDiskMB = math.Round(freeDiskMB)
+  freeDiskMB = math.Floor(freeDiskMB)
 	if usedDisk/totalDisk*100 > maxDiskUsagePercent {
 		fmt.Printf("Free disk space is too low: %.0f Mb left\n", freeDiskMB)
 	}
 
 	// Проверка использования пропускной способности сети
 	freeBandwidthMbit := (totalBandwidth - usedBandwidth) / (1000 * 1000)
-  freeBandwidthMbit = math.Round(freeBandwidthMbit)
+  freeBandwidthMbit = math.Floor(freeBandwidthMbit)
 	if usedBandwidth/totalBandwidth*100 > maxNetworkUsagePercent {
 		fmt.Printf("Network bandwidth usage high: %.0f Mbit/s available\n", freeBandwidthMbit)
 	}

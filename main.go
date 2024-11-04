@@ -99,24 +99,24 @@ func checkStats(values []float64) {
 
 	// Проверка Load Average
 	if loadAverage > maxLoadAverage {
-		fmt.Printf("Load Average is too high: %.2f\n", loadAverage)
+		fmt.Printf("Load Average is too high: %.0f\n", loadAverage)
 	}
 
 	// Проверка использования памяти
 	if usedMemory/totalMemory*100 > maxMemoryUsagePercent {
 		memUsagePercent := usedMemory / totalMemory * 100
-		fmt.Printf("Memory usage too high: %.2f%%\n", memUsagePercent)
+		fmt.Printf("Memory usage too high: %.0f%%\n", memUsagePercent)
 	}
 
 	// Проверка использования диска
-	freeDiskMB := (totalDisk - usedDisk) / (1000 * 1000)
+	freeDiskMB := (totalDisk - usedDisk) / (1024 * 1024)
 	if usedDisk/totalDisk*100 > maxDiskUsagePercent {
 		fmt.Printf("Free disk space is too low: %.0f Mb left\n", freeDiskMB)
 	}
 
 	// Проверка использования пропускной способности сети
-	freeBandwidthMbit := (totalBandwidth - usedBandwidth) / (1000 * 1000)
+	freeBandwidthMbit := (totalBandwidth - usedBandwidth) / (1024 * 1024)
 	if usedBandwidth/totalBandwidth*100 > maxNetworkUsagePercent {
-		fmt.Printf("Network bandwidth usage high: %.2f Mbit/s available\n", freeBandwidthMbit)
+		fmt.Printf("Network bandwidth usage high: %.0f Mbit/s available\n", freeBandwidthMbit)
 	}
 }
